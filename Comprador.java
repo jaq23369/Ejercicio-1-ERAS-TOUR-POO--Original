@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Comprador{
     private String nombre;
     private String email;
@@ -13,15 +15,15 @@ public class Comprador{
 
     public void solicitarComprarBoletos(){
         System.out.println("Ingrese la cantidad de boletos que desea comprar: ");
-        cantidadBoletosComprar = Integer.parseInt(System.console().readline());
+        cantidadBoletosComprar = Integer.parseInt(System.console().readLine());
         System.out.println("Ingrese su presupuesto maximo: ");
         presupuestoMaximo = Double.parseDouble(System.console().readLine());
     }
 
-    public boolean realizarCompraBoletos(Ticket ticket){
+    public boolean realizarCompraBoletos(Ticket ticket, ArrayList<Localidad> localidadesDisponibles){
         if (ticket.esAptoParaComprar()){
-            Localidad localidadAsignada = ticket.asignarLocalidad();
-            if (localidadAsignada.validarBoletosDisponibles() &&
+            Localidad localidadAsignada = ticket.asignarLocalidad(localidadesDisponibles);
+            if (localidadAsignada.validarBoletosDisponibles(1) &&
                 localidadAsignada.validarBoletosDisponibles(cantidadBoletosComprar) &&
                 localidadAsignada.validarPrecio(presupuestoMaximo)){
             localidadAsignada.venderBoletos(cantidadBoletosComprar);
@@ -41,7 +43,7 @@ public class Comprador{
         return  nombre;
     }
 
-    public String email(){
+    public String getEmail(){
         return email;
     }
 

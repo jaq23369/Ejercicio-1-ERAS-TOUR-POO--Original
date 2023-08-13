@@ -1,4 +1,9 @@
 /**
+ * Estudiante: Joel Antonio Jaquez Lopez
+ * Carne: 23369
+ * Carrera: Ingenieria en Ciencias de la computacion y tecnologias de la informacion 
+ * Fecha de creacion: 12/8/2023
+ * Ultima fecha de modificacion: 12/8/2023
  * La clase Localidad representa una localidad en el evento.
  */
 public class Localidad{
